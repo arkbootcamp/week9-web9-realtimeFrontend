@@ -3,6 +3,10 @@ import { Button, Container, Form, Card } from "react-bootstrap";
 
 function Login(props) {
   const [username, setUsername] = useState("");
+  const [form, setForm] = useState({
+    username: "",
+    password: "",
+  });
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -11,7 +15,9 @@ function Login(props) {
   };
 
   const changeText = (event) => {
+    const { name } = event.target;
     setUsername(event.target.value);
+    setForm({ ...form, [name]: event.target.value });
   };
 
   return (
