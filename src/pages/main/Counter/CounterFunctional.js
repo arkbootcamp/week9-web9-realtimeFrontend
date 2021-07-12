@@ -108,8 +108,10 @@ export default Counter;
 // } from "../../../redux/action/counter";
 
 // function Counter() {
-//   const count = useSelector((state) => state.counter.count);
-//   const dispatch = useDispatch();
+// // useSelector = untuk menggantikan mapStateToProps
+// const count = useSelector((state) => state.counter.count);
+// // useDispatch = untuk pemanggilan action redux
+// const dispatch = useDispatch();
 
 //   return (
 //     <>

@@ -11,6 +11,7 @@ import PublicRoute from "./helpers/PublicRoute";
 import Login from "./pages/auth/Login/Login";
 import Chat from "./pages/main/Chat/Chat";
 import Counter from "./pages/main/Counter/CounterFunctional";
+import Maps from "./pages/main/Maps/Maps";
 // =========================================
 import io from "socket.io-client";
 // =========================================
@@ -46,6 +47,7 @@ function App() {
           />
           <PrivateRoute socket={socket} path="/chat" exact component={Chat} />
           <PrivateRoute path="/counter" exact component={Counter} />
+          <PrivateRoute path="/maps" exact component={Maps} />
         </Switch>
       </Router>
     </Provider>

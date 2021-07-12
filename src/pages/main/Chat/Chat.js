@@ -15,7 +15,8 @@ function Chat(props) {
         setMessages([...messages, dataMessage]);
       });
     }
-  }, [props.socket, messages]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.socket]);
   //  =======================================
   const handleSelectRoom = (event) => {
     // if (room.old) {
@@ -31,6 +32,16 @@ function Chat(props) {
       username, // username: username
     });
     setRoom({ ...room, new: event.target.value, old: event.target.value });
+    // [2]
+    // GET DATA DARI TABLE CHAT BERDASARKAN ROOM_CHAT MENGGUNAKAN REQUEST GET CHAT BY ROOM_CHAT
+    // HISTORY PESANNYA DAN PASANG KE VARIABLE MESSAGES
+    // =================================
+    // props.getMessage().then((res) => {setMesagges(response.data)})
+    // =================================
+    const historyMessage = [
+      { room: "html", username: "Bagus", message: "Hello !" },
+    ];
+    setMessages(historyMessage);
   };
 
   const handleChangeText = (event) => {
@@ -57,7 +68,7 @@ function Chat(props) {
     // [1] menjalankan socket io untuk mendapatkan realtimenya
     props.socket.emit("roomMessage", setData);
     // [2] menjalankan proses axios post data ke table chat
-    // props.postMessage(setData)
+    // props.postMessage(setData);
     setMessage("");
   };
 
